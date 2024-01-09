@@ -1,1 +1,1 @@
-# seatech-python-robotique
+# Seatech : python robotique
