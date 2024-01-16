@@ -6,23 +6,23 @@ class Human():
     def __init__(self, sexe):
         if sexe == 'M' or sexe == 'F' or sexe == 'H':
             self.__sexe = sexe
-            self.__aliments_manges = []
-            self.__nbre_aliments_manges = 0
+            self.__eaten_aliments = []
+            self.__count_eaten_aliments = 0
 
     def eat(self, aliments):
         if type(aliments) is str:
-            self.__aliments_manges.append(aliments)
-            self.__nbre_aliments_manges += 1
-            print("Je mange {} ({} aliments mangés)".format(aliments, self.__nbre_aliments_manges))
+            self.__eaten_aliments.append(aliments)
+            self.__count_eaten_aliments += 1
+            print("Je mange {} ({} {})".format(aliments, self.__count_eaten_aliments, "aliments mangés" if self.__count_eaten_aliments > 1 else "aliment mangé"))
         elif type(aliments) is list and type(aliments[0]) is str:
-            self.__aliments_manges.extend(aliments)
+            self.__eaten_aliments.extend(aliments)
             for aliment in aliments:
-                self.__nbre_aliments_manges += 1
-                print("Je mange {} ({} aliments mangés)".format(aliment, self.__nbre_aliments_manges))
+                self.__count_eaten_aliments += 1
+                print("Je mange {} ({} {})".format(aliment, self.__count_eaten_aliments,  "aliments mangés" if self.__count_eaten_aliments > 1 else "aliment mangé"))
         
     def digest(self):
-        for i in range(self.__nbre_aliments_manges):
-            print("Digestion en cours ({}/{})".format(i+1, self.__nbre_aliments_manges), flush=True, end='\r')
+        for i in range(self.__count_eaten_aliments):
+            print("Digestion en cours ({}/{})".format(i+1, self.__count_eaten_aliments), flush=True, end='\r')
             sleep(1)
         print()
 
@@ -33,6 +33,14 @@ class Human():
     def sexe(self, new_sexe):
         if new_sexe == 'M' or new_sexe == 'F' or new_sexe == 'H':
             self.__sexe = new_sexe
+    
+    @property
+    def count_eaten_aliments(self):
+        return self.__count_eaten_aliments
+    
+    @property
+    def eaten_aliments(self):
+        return self.__eaten_aliments
 
 
 class Cyborg(Robot, Human):   
