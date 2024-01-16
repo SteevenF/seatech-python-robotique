@@ -14,12 +14,12 @@ class Robot():
         self.__current_speed = 0
         self.__battery_level = 0
     
-    def allumer(self):
+    def turn_on(self):
         self.__power = True
-    def eteindre(self):
+    def turn_off(self):
         self.__power = False
     
-    def charger(self):
+    def charge(self):
         barre = ""
         print("Niveau de batterie de {} : {{{:100s}}} {}%".format(self.__name, barre, self.__battery_level), flush=True, end='\r')
         while self.__battery_level < 100:
@@ -34,23 +34,23 @@ class Robot():
         self.__current_speed = 0
 
     @property
-    def vitesse(self):
+    def speed(self):
         return self.__current_speed
-    @vitesse.setter
-    def vitesse(self, speed):
+    @speed.setter
+    def speed(self, speed):
         self.__current_speed = speed
     
     @property
     def name(self):
         return self.__name
     
-    def get_state(self):
+    def status(self):
         print("Etat : {}\nNiveau de batterie : {}%\nVitesse : {}"\
               .format(self.__states[1] if self.__power else self.__states[0], self.__battery_level, self.__current_speed))
 
 if __name__ == "__main__":
     r = Robot("Le nom")
-    r.charger()
-    r.get_state()
-    r.allumer()
-    r.get_state()
+    r.charge()
+    r.status()
+    r.turn_on()
+    r.status()
