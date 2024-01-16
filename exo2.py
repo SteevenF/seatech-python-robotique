@@ -25,6 +25,8 @@ class Human():
             print("Digestion en cours ({}/{})".format(i+1, self.__count_eaten_aliments), flush=True, end='\r')
             sleep(1)
         print()
+        self.__eaten_aliments.clear()
+        self.__count_eaten_aliments = 0
 
     @property
     def sexe(self):
