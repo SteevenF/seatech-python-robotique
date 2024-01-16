@@ -2,7 +2,7 @@ from time import sleep
 from time import time
 
 class Robot():
-    def __init__(self, name):
+    def __init__(self, name  = "<unnamed>"):
         self.__name = name
         self.__power = False
         self.__current_speed = 0
