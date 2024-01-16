@@ -28,6 +28,9 @@ class Human():
         self.__eaten_aliments.clear()
         self.__count_eaten_aliments = 0
 
+    def status(self):
+        print("Sexe : {}\nAliments mangés : {}".format(self.__sexe, self.__eaten_aliments))
+
     @property
     def sexe(self):
         return self.__sexe
@@ -53,12 +56,16 @@ class Cyborg(Robot, Human):
     def listen_people(self):
         print('Conversation entendue à 2km :\n"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna eget est lorem ipsum dolor sit amet consectetur. Tortor condimentum lacinia quis vel eros donec ac. Auctor urna nunc id cursus metus aliquam eleifend mi. Parturient montes nascetur ridiculus mus mauris."')
 
+    def status(self):
+        Robot.status(self)
+        Human.status(self)
+
 if __name__ == "__main__":
     cyborg = Cyborg('Deux Ex Machina', 'M')
 
     print(cyborg.name, 'sexe', cyborg.sexe)
     print('Charging battery...')
-    cyborg.charge()
+    #cyborg.charge()
     cyborg.status()
     cyborg.eat('banana')
     cyborg.eat(['coca', 'chips'])
