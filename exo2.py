@@ -2,7 +2,6 @@ from time import sleep
 from exo1 import Robot
 
 class Human():
-    __sexe = "None"
     def __init__(self, sexe):
         self.__sexe = sexe
         self.__aliments_manges = []
@@ -37,6 +36,9 @@ class Cyborg(Robot, Human):
     def __init__(self, name, sexe):   
         Robot.__init__(self, name)
         Human.__init__(self, sexe)
+
+    def truc_fun():
+        pass
 
 if __name__ == "__main__":
     cyborg = Cyborg('Deux Ex Machina', 'M')

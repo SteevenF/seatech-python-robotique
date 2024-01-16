@@ -2,17 +2,13 @@ from time import sleep
 from time import time
 
 class Robot():
-    __name = "<unnamed>"
-    __states = ['shutown', 'running'] 
-    
-    """
-      Give your best code here ( •̀ ω •́ )✧
-    """
     def __init__(self, name):
         self.__name = name
         self.__power = False
         self.__current_speed = 0
         self.__battery_level = 0
+        self.__name = "<unnamed>"
+        self.__states = ['shutown', 'running'] 
     
     def turn_on(self):
         self.__power = True
@@ -30,7 +26,7 @@ class Robot():
         print()
             
     
-    def arret_immediat(self):
+    def stop(self):
         self.__current_speed = 0
 
     @property
