@@ -7,7 +7,6 @@ class Robot():
         self.__power = False
         self.__current_speed = 0
         self.__battery_level = 0
-        self.__name = "<unnamed>"
         self.__states = ['shutown', 'running'] 
     
     def turn_on(self):
