@@ -1,5 +1,4 @@
 from time import sleep
-from time import time
 
 class Robot():
     def __init__(self, name  = "<unnamed>"):
@@ -33,7 +32,8 @@ class Robot():
         return self.__current_speed
     @speed.setter
     def speed(self, speed):
-        self.__current_speed = speed
+        if (type(speed) is int) or (type(speed) is float):
+            self.__current_speed = speed
     
     @property
     def name(self):
